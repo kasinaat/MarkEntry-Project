@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<title>Python Project</title>      
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+      <div class=" col-xs-12 text-center" style="background-color: #CB7230;padding-bottom: 10px;">
+    <div class="col-xs-6" style="color: white";><h1>Karpagam College of Engineering</h1></div>
+  </div>
+</head>
+<style type="text/css">
+.me{
+	
+  background-color:#DEDEDE;
+  border-radius:10%;
+} 
+
+</style>
+<script type="text/javascript">
+  
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("currentuser");
+    if (user == "admin") {
+        window.location = "adminpage.html";
+    } else {
+      if(user == "tester"){
+          window.location = "mainpage.html";
+      }
+    }
+}
+</script>
+<body style="background-color: #e0e0e0" onload="checkCookie()">
+
+<div class="row">
+<div class="col-xs-5">
+
+</div>
+<div >
+<form name = "myform" class="form-horizontal col-xs-7 login-form" method="POST" action="login.py" style="padding-top: 100px">
+<fieldset class="col-xs-8 col-xs-offset-2 me"><legend>Login</legend>
+  <div class="form-group">  
+    <label for="inputEmail3" class="col-sm-2 control-label">UserID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="UserID" name="username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10" style="padding-bottom: 35px"  >
+      <input type="submit" class="btn" style="background-color: #CB7230;color: white" value="Sign in">
+    </div>
+  </div>
+</form>
+</div>
+</div>
+</fieldset>
+</body>
+</html>

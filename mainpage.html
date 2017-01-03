@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Python project</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <div class=" col-xs-12 text-center" style="background-color: #CB7230;padding-bottom: 10px;">
+    <div class="col-xs-6" style="color: white";><h1>Karpagam College of Engineering</h1></div>
+    </div>
+</head>
+<script type="text/javascript">
+  
+
+function setCookie(cname,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    var cvalue = document.myform.username.value;
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("currentuser");
+    if (user == "admin") {
+        window.location = "adminpage.html";
+    } if (user != "admin" && user != "tester"){
+    	window.location = "index.html";
+    }
+}
+</script>
+
+<body onload="checkCookie()" style="background-color: #e0e0e0">
+<div class="row">
+	<div class="col-xs-3">
+		
+	</div>
+	<div class="col-xs-5">
+	<h1>Candidate Details</h1>
+		<form class="form-horizontal" method = "post" action = "entermarks.py">
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Candidate Name</label>
+					<div class="col-xs-8">
+						<input type="text" name="candidate_name" placeholder="Candidate Name" class="form-control" required="">
+					</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Rollno</label>
+					<div class="col-xs-8">
+						<input type="text
+						" name="roll_no" placeholder="RollNo." required="" class="form-control">
+					</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Dept/sec</label>
+					<div class="col-xs-8">
+						<input type="text" name="class_name" required="" placeholder="Dept/sec" class="form-control">
+					</div>
+			</div>
+			<h1>Program Marks</h1>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Program 1</label>
+				<div class="col-xs-8">
+					<input type="number" name="program_mark_1" class="form-control" required="" placeholder="Program 1">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Program 2</label>
+				<div class="col-xs-8">
+					<input type="number" name="program_mark_2" class="form-control" required="" placeholder="Program 2">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Program 3</label>
+				<div class="col-xs-8">
+					<input type="number" name="program_mark_3" class="form-control" required="" 
+					 placeholder="Program 3">
+				</div>
+			</div>
+			<h1>Interview Marks</h1>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Verbal</label>
+				<div class="col-xs-8">
+					<input type="number" name="interview_mark_1" class="form-control" required placeholder="Verbal">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">Technical</label>
+				<div class="col-xs-8">
+					<input type="number" required="" name="interview_mark_2" class="form-control" placeholder="Technical">
+				</div>
+			</div>
+			<div class="form-group">
+    			<div class="col-xs-offset-5">
+    			  <input type="submit" class="btn" style="background-color: #CB7230;color: white" value="Submit Marks">
+    			</div>
+  			</div>
+  		</form><a href = "logout.py" class = "col-xs-offset-5" style="background-color: #CB7230;color: white">Exit</a>
+		
+	</div>
+</div>
+
+</body>
+</html>
